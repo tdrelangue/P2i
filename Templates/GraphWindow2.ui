@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>783</width>
+    <height>658</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QWidget" name="horizontalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>781</width>
+      <height>611</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_3">
+     <item>
+      <widget class="QFrame" name="frameGraph">
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <widget class="QWidget" name="layoutWidget">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>351</width>
+          <height>609</height>
+         </rect>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout">
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout">
+           <item>
+            <layout class="QGridLayout" name="gridLayout_2">
+             <item row="2" column="0">
+              <widget class="QSlider" name="SliderDelaiLivr">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <layout class="QHBoxLayout" name="horizontalLayout_5">
+               <item>
+                <widget class="QLabel" name="labelDelai">
+                 <property name="text">
+                  <string>Delai de livraison</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QSpinBox" name="spinBoxDelai"/>
+               </item>
+              </layout>
+             </item>
+             <item row="5" column="0">
+              <layout class="QHBoxLayout" name="horizontalLayout_7">
+               <item>
+                <widget class="QLabel" name="labelQuarantaine">
+                 <property name="text">
+                  <string>Quarantaine</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QSpinBox" name="spinBoxQuarantaine"/>
+               </item>
+              </layout>
+             </item>
+             <item row="7" column="0">
+              <layout class="QHBoxLayout" name="horizontalLayout_8">
+               <item>
+                <widget class="QLabel" name="labelFreqProd">
+                 <property name="text">
+                  <string>Fréquence de prod</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QSpinBox" name="spinBoxFreqProd"/>
+               </item>
+              </layout>
+             </item>
+             <item row="9" column="0">
+              <layout class="QHBoxLayout" name="horizontalLayout_9">
+               <item>
+                <widget class="QLabel" name="labelDLC">
+                 <property name="text">
+                  <string>DLC</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QSpinBox" name="spinBoxDLC"/>
+               </item>
+              </layout>
+             </item>
+             <item row="3" column="0">
+              <layout class="QHBoxLayout" name="horizontalLayout_6">
+               <item>
+                <widget class="QLabel" name="labelContractDate">
+                 <property name="text">
+                  <string>Contract date</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QSpinBox" name="spinBoxContractDate"/>
+               </item>
+              </layout>
+             </item>
+             <item row="4" column="0">
+              <widget class="QSlider" name="SliderContratDate">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+              </widget>
+             </item>
+             <item row="6" column="0">
+              <widget class="QSlider" name="SliderQuarantaine">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+              </widget>
+             </item>
+             <item row="8" column="0">
+              <widget class="QSlider" name="SliderFreqProd">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+              </widget>
+             </item>
+             <item row="10" column="0">
+              <widget class="QSlider" name="SliderDLC">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_2">
+           <item>
+            <layout class="QGridLayout" name="gridLayout">
+             <item row="8" column="1">
+              <widget class="QCheckBox" name="checkBoxSaL">
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+             <item row="9" column="1">
+              <widget class="QCheckBox" name="checkBoxDiL">
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+             <item row="6" column="0">
+              <widget class="QLabel" name="labelJe">
+               <property name="text">
+                <string>Jeudi</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="1">
+              <widget class="QCheckBox" name="checkBoxMaL">
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="1">
+              <widget class="QCheckBox" name="checkBoxLuL">
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+             <item row="7" column="0">
+              <widget class="QLabel" name="labelVe">
+               <property name="text">
+                <string>Vendredi</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="7" column="1">
+              <widget class="QCheckBox" name="checkBoxVeL">
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+             <item row="6" column="1">
+              <widget class="QCheckBox" name="checkBoxJeL">
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="2">
+              <widget class="QCheckBox" name="checkBoxLuP">
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+             <item row="9" column="0">
+              <widget class="QLabel" name="labelDi">
+               <property name="text">
+                <string>Dimanche</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="0">
+              <widget class="QLabel" name="labelMa">
+               <property name="text">
+                <string>Mardi</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="8" column="0">
+              <widget class="QLabel" name="labelSa">
+               <property name="text">
+                <string>Samedi</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="5" column="0">
+              <widget class="QLabel" name="labelMe">
+               <property name="text">
+                <string>Mercredi</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="9" column="2">
+              <widget class="QCheckBox" name="checkBoxDiP">
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+             <item row="8" column="2">
+              <widget class="QCheckBox" name="checkBoxSaP">
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+             <item row="6" column="2">
+              <widget class="QCheckBox" name="checkBoxJeP">
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="2">
+              <widget class="QCheckBox" name="checkBoxMaP">
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+             <item row="7" column="2">
+              <widget class="QCheckBox" name="checkBoxVeP">
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+             <item row="5" column="1">
+              <widget class="QCheckBox" name="checkBoxMeL">
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+             <item row="5" column="2">
+              <widget class="QCheckBox" name="checkBoxMeP">
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="0">
+              <widget class="QLabel" name="labelLu">
+               <property name="text">
+                <string>Lundi</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="1">
+              <widget class="QLabel" name="labelLivr">
+               <property name="text">
+                <string>Livraison</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="2">
+              <widget class="QLabel" name="labelProd">
+               <property name="text">
+                <string>Production</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="0">
+              <widget class="QLabel" name="label">
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_4">
+           <item>
+            <widget class="QPushButton" name="pushButtonClear">
+             <property name="text">
+              <string>Clear</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>783</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>Fichier</string>
+    </property>
+    <addaction name="actionOuvrir"/>
+    <addaction name="actionNouveau"/>
+    <addaction name="actionSauvegarder"/>
+   </widget>
+   <widget class="QMenu" name="menuFen_tre">
+    <property name="title">
+     <string>Fenêtre</string>
+    </property>
+    <widget class="QMenu" name="menuPolice">
+     <property name="title">
+      <string>Police</string>
+     </property>
+     <addaction name="action32"/>
+     <addaction name="action16"/>
+     <addaction name="action8"/>
+    </widget>
+    <addaction name="menuPolice"/>
+    <addaction name="actionMode_Sans_Serif"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuFen_tre"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionOuvrir">
+   <property name="text">
+    <string>Ouvrir ...</string>
+   </property>
+  </action>
+  <action name="actionNouveau">
+   <property name="text">
+    <string>Nouveau</string>
+   </property>
+  </action>
+  <action name="actionSauvegarder">
+   <property name="text">
+    <string>Enregistrer sous ...</string>
+   </property>
+  </action>
+  <action name="actionMode_Sans_Serif">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Mode Sans Serif</string>
+   </property>
+  </action>
+  <action name="action32">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>32</string>
+   </property>
+  </action>
+  <action name="action16">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>16</string>
+   </property>
+  </action>
+  <action name="action8">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>8</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
