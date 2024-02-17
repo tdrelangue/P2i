@@ -1,54 +1,57 @@
 # Libraries
-import sys
-from matplotlib.backends.backend_qtagg import FigureCanvasQTAgg as FigureCanvas
+import sys                                 # Import the sys module for handling system-specific parameters and functions
+import PyQt6
+from matplotlib.backends.backend_qtagg import FigureCanvasQTAgg as FigureCanvas  # Import the FigureCanvasQTAgg for creating a matplotlib figure canvas in a PyQt5 application
 
-from mainWindow import UiMainWindow
-from GraphWindow import UiGraphWindow
+from mainWindow import UiMainWindow          # Import the UiMainWindow class from the mainWindow module
+from GraphWindow import UiGraphWindow        # Import the UiGraphWindow class from the GraphWindow module
 from PyQt6.QtWidgets import QApplication, QPushButton, QMainWindow, QCheckBox, QSpinBox, QMessageBox, QSlider
+# Import various classes from the PyQt6.QtWidgets module for creating graphical user interface elements
+
 from PyQt6.QtGui import QIcon, QFont
+# Import various classes from the Py6.QtGui module for handling graphical user interface elements    QIcon,
 
-import numpy as np
-from CalcSecuStock import *
-from Menubar_Sliders import Ui_MainWindow
+import numpy as np                          # Import the numpy module for numerical computations
+from CalcSecuStock import *                 # Import the CalcSecuStock module, which contains functions for calculating stock-related values
 
 
-class MyApp(QMainWindow):
-    def __init__(self):
-        super().__init__()
-        self.setWindowTitle('SecuStock')
-        self.setWindowIcon(QIcon('stock.ico'))
-        # self.setSizePolicy(QSizePolicy.Policy, QSizePolicy.Policy.Maximum)
-        self.resize(900, 550)
-        self.PrimaryFont = QFont("verdana", 16)
-        self.SecondaryFont = QFont("verdana", 8)
+class MyApp(QMainWindow):                   # Define a new class named MyApp that inherits from the QMainWindow class
+    def __init__(self):                      # Define the constructor method for the MyApp class
+        super().__init__()                   # Call the constructor of the superclass (QMainWindow) to initialize the object
+        self.setWindowTitle('SecuStock')      # Set the window title to 'SecuStock'
+        self.setWindowIcon(QIcon('stock.ico')) # Set the window icon to the 'stock.ico' file
+        # self.setSizePolicy(QSizePolicy.Policy, QSizePolicy.Policy.Maximum) # Set the size policy of the window
+        self.resize(900, 550)                # Set the window size to 900x550 pixels
+        self.PrimaryFont = QFont("verdana", 16) # Create a QFont object for the primary font
+        self.SecondaryFont = QFont("verdana", 8) # Create a QFont object for the secondary font
 
-        # def base values
-        self.DLC = 30
-        self.DelaiLivraison = 1
-        self.Suremballage = 1
-        self.Quarantaine = 1
-        self.ContratDate = 15
+        # Initialize base values
+        self.DLC = 30                         # Days of lead time (DLC)
+        self.DelaiLivraison = 1               # Delay in delivery
+        self.Suremballage = 1                 # Overpackaging
+        self.Quarantaine = 1                  # Quarantine
+        self.ContratDate = 15                 # Contract date
 
-        # def value checkboxes
-        self.LuProd = True
-        self.MaProd = True
-        self.MeProd = True
-        self.JeProd = True
-        self.VeProd = True
-        self.SaProd = True
-        self.DiProd = False
-        self.LuLivr = True
-        self.MaLivr = True
-        self.MeLivr = True
-        self.JeLivr = True
-        self.VeLivr = True
-        self.SaLivr = True
-        self.DiLivr = False
+        # Initialize value checkboxes
+        self.LuProd = True                    # Monday production
+        self.MaProd = True                    # Tuesday production
+        self.MeProd = True                    # Wednesday production
+        self.JeProd = True                    # Thursday production
+        self.VeProd = True                    # Friday production
+        self.SaProd = True                    # Saturday production
+        self.DiProd = False                   # Sunday production
+        self.LuLivr = True                    # Monday delivery
+        self.MaLivr = True                    # Tuesday delivery
+        self.MeLivr = True                    # Wednesday delivery
+        self.JeLivr = True                    # Thursday delivery
+        self.VeLivr = True                    # Friday delivery
+        self.SaLivr = True                    # Saturday delivery
+        self.DiLivr = False                   # Sunday delivery
 
-        self.ui = UiMainWindow()
-        self.ui.setupUi(self)
+        self.ui = UiMainWindow()              # Create an instance of the UiMainWindow class
+        self.ui.setupUi(self)                 # Set up the user interface using the UiMainWindow instance
 
-        # push button enter
+        # Connect the 'Enter' push button to the CreateGraphWindow method
         self.pushButtonEnter = self.findChild(QPushButton, "pushButtonEnter")
         self.pushButtonEnter.clicked.connect(self.CreateGraphWindow)
 
@@ -149,6 +152,7 @@ class MyApp(QMainWindow):
         self.spinBoxDLC.setValue(self.DLC)
 
     def CreateGraphWindow(self):
+        """Function responsible for creating a graph in the canvas"""
         self.ui = UiGraphWindow()
         self.ui.setupUi(self)
 
@@ -162,6 +166,7 @@ class MyApp(QMainWindow):
         self.CreateGraph()
 
     def SpinBoxIsChanged(self,  changedValue):
+        """Function responsible for changing the parameter according to the spinBoxes in the main page"""
         match changedValue:
             case "DLC":
                 self.DLC = ic(self.spinBoxDLC.value())
@@ -175,6 +180,8 @@ class MyApp(QMainWindow):
                 self.ContratDate = ic(self.spinBoxContractDate.value())
 
     def GraphSliderIsChanged(self, changedValue):
+        """Function responsible for changing the parameter according to the sliders in the graph page"""
+
         match changedValue:
             case "DLC":
                 self.DLC = ic(self.sliderDLC.value())
@@ -194,7 +201,7 @@ class MyApp(QMainWindow):
         self.CreateGraph()
 
     def GraphSpinBoxIsChanged(self, changedValue):
-
+        """Function responsible for changing the parameter according to the spinBoxes in the graph page"""
         match changedValue:
             case "DLC":
                 self.DLC = ic(self.spinBoxDLC.value())
@@ -209,6 +216,7 @@ class MyApp(QMainWindow):
         self.CreateGraph()
 
     def CheckBoxIsChecked(self, changedValue):
+        """Function responsible for changing the parameter according to the checkboxes in the main page"""
         match changedValue:
             case "LuProd":
                 self.LuProd = ic(self.checkBoxLuP.isChecked())
@@ -240,6 +248,7 @@ class MyApp(QMainWindow):
                 self.DiLivr = ic(self.checkBoxDiL.isChecked())
 
     def GraphCheckBoxIsChecked(self, changedValue):
+        """Function responsible for changing the parameter according to the checkboxes in the graph page"""
         match changedValue:
             case "LuProd":
                 self.LuProd = ic(self.checkBoxLuP.isChecked())
@@ -272,13 +281,14 @@ class MyApp(QMainWindow):
         self.CreateGraph()
 
     def AssignGraphWindowWidgets(self):
-        # Relicat de l'époque où le graph ne se métait pas à jour en temps réel
+        """Recuperate the widgets when the new graph window is opened"""
+        # Relicat de l'époque où le graph ne se mettait pas à jour en temps réel
         # Je fais la bascule entre V1 et V2 donc je le laisse pour l'instant
         try:
             # push button enter
             self.pushButtonEnter = self.findChild(QPushButton, "GraphPushButtonEnter")
             self.pushButtonEnter.clicked.connect(self.CreateGraph)
-        except:
+        except Exception:
             pass
 
         # checkbox Lundi Prod
@@ -399,6 +409,7 @@ class MyApp(QMainWindow):
         self.sliderDLC.setValue(self.DLC)
 
     def CreateGraph(self):
+        """Creates or updates the graph"""
         try:
             planning = create_delivery_planning(
                 quarantaine=self.Quarantaine + self.DelaiLivraison,
