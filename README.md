@@ -88,7 +88,7 @@ The software, divided into two main objectives (Objective A and Objective B), in
 
 #### **Creation of Sliders for Parameter Impact Visualization**
 
-| Task                                       | Status    | Timestamp            |
+| Task                                   | Status    | Timestamp            |
 |--------------------------------------------|-----------|----------------------|
 | Create a graphical page                    | Completed | 18/01/2024 19:09     |
 | Display a graph                            | Completed | 06/02/2024 14:41     |
@@ -99,7 +99,7 @@ The software, divided into two main objectives (Objective A and Objective B), in
 
 #### **Stock Management Functions**
 
-| Task                                    | Status   | Timestamp            |
+| Task                                | Status   | Timestamp            |
 |-----------------------------------------|----------|----------------------|
 | Delivery schedule in Python             | Completed| 06/02/2024 14:44     |
 | Calculate the worst week                | Completed| 08/02/2024 17:26     |
@@ -107,3 +107,33 @@ The software, divided into two main objectives (Objective A and Objective B), in
 | Calculate the stockout                  | Completed| 08/02/2024 17:26     |
 | Linear regression                       | Completed| 08/02/2024 17:26     |
 | Excluded cases alerts                   | Completed| 08/02/2024 17:26     |
+
+### **Objectif B**
+
+#### **Training Data Creation**
+
+| Task                                           |   Status   |    Timestamp    |
+|------------------------------------------------|------------|-----------------|
+| Create a training set for CD                   |  Pending   | -               |
+| Create a training set for production days      |  Pending   | -               |
+| Create a training set for delivery days        |  Pending   | -               |
+| Create a training set for quarantine           |  Pending   | -               |
+| Create a training set for overpacking          |  Pending   | -               |
+| Create training sets for combinations          |  Pending   | -               |
+
+#### **Choosing the AI Model**   
+
+| Task                                 |   Status   |    Timestamp    |
+|--------------------------------------|------------|-----------------|
+| Search for potential suitable models |  Pending   | -               |
+| Compare AI models                    |  Pending   | -               |
+| Fine-tune the most promising one(s)  |  Pending   | -               |
+
+#### **AI Implementation in the Solution**  
+
+| Task                                   |  Status   |   Timestamp     |
+|----------------------------------------|-----------|-----------------|
+| Add the AI button                      |  Pending  | -               |
+| Add the parameter selection dialog box |  Pending  | -               |
+| Implement the prediction               |  Pending  | -               |
+| Test the solution with the user        |  Pending  | -               |
