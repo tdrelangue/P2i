@@ -1,10 +1,14 @@
 # Libraries
-import sys                                 # Import the sys module for handling system-specific parameters and functions
-import PyQt6
-from matplotlib.backends.backend_qtagg import FigureCanvasQTAgg as FigureCanvas  # Import the FigureCanvasQTAgg for creating a matplotlib figure canvas in a PyQt5 application
-
-from mainWindow import UiMainWindow          # Import the UiMainWindow class from the mainWindow module
-from GraphWindow import UiGraphWindow        # Import the UiGraphWindow class from the GraphWindow module
+import os
+import sys
+# Import the sys module for handling system-specific parameters and functions
+from matplotlib.backends.backend_qtagg import FigureCanvasQTAgg as FigureCanvas
+# Import the FigureCanvasQTAgg for creating a matplotlib figure canvas in a PyQt6 application
+from mainWindow import UiMainWindow
+# Import the UiMainWindow class from the mainWindow module
+from GraphWindow import UiGraphWindow
+# Import the UiGraphWindow class from the GraphWindow module
+from PyQt6 import QtCore, QtGui, QtWidgets
 from PyQt6.QtWidgets import QApplication, QPushButton, QMainWindow, QCheckBox, QSpinBox, QMessageBox, QSlider
 # Import various classes from the PyQt6.QtWidgets module for creating graphical user interface elements
 
@@ -17,16 +21,80 @@ from CalcSecuStock import *                 # Import the CalcSecuStock module, w
 
 class MyApp(QMainWindow):                   # Define a new class named MyApp that inherits from the QMainWindow class
     def __init__(self):                      # Define the constructor method for the MyApp class
-        super().__init__()                   # Call the constructor of the superclass (QMainWindow) to initialize the object
+        super().__init__()       # Call the constructor of the superclass (QMainWindow) to initialize the object
         self.setWindowTitle('SecuStock')      # Set the window title to 'SecuStock'
-        self.setWindowIcon(QIcon('stock.ico')) # Set the window icon to the 'stock.ico' file
-        # self.setSizePolicy(QSizePolicy.Policy, QSizePolicy.Policy.Maximum) # Set the size policy of the window
-        self.resize(900, 550)                # Set the window size to 900x550 pixels
-        self.PrimaryFont = QFont("verdana", 16) # Create a QFont object for the primary font
-        self.SecondaryFont = QFont("verdana", 8) # Create a QFont object for the secondary font
+        self.setWindowIcon(QIcon(self.resource_path('stock.ico')))      # Set the window icon to the 'stock.ico' file
+        # import open dyslexic font
+        id_open_dys = QtGui.QFontDatabase.addApplicationFont(self.resource_path("OpenDyslexic-Regular.otf"))
+        # get the exact system name to ensure no mistakes are made
+        self.OpenDyslexic = QtGui.QFontDatabase.applicationFontFamilies(id_open_dys)[0]
+        self.PrimaryFont = "calibri"
+
+        # Creation of the menu bar
+        self.menubar = QtWidgets.QMenuBar()
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 783, 22))
+        self.menubar.setObjectName("menubar")
+        self.menuFile = QtWidgets.QMenu(parent=self.menubar)
+        self.menuFile.setObjectName("menuFile")
+        self.menuFen_tre = QtWidgets.QMenu(parent=self.menubar)
+        self.menuFen_tre.setObjectName("menuFen_tre")
+        self.menuPolice = QtWidgets.QMenu(parent=self.menuFen_tre)
+        self.menuPolice.setObjectName("menuPolice")
+        self.setMenuBar(self.menubar)
+        self.statusbar = QtWidgets.QStatusBar()
+        self.statusbar.setObjectName("statusbar")
+        self.setStatusBar(self.statusbar)
+        self.actionOuvrir = QtGui.QAction()
+        self.actionOuvrir.setObjectName("actionOuvrir")
+        self.actionNouveau = QtGui.QAction()
+        self.actionNouveau.setObjectName("actionNouveau")
+        self.actionSauvegarder = QtGui.QAction()
+        self.actionSauvegarder.setObjectName("actionSauvegarder")
+        self.actionMode_Dys = QtGui.QAction()
+        self.actionMode_Dys.setCheckable(True)
+        self.actionMode_Dys.setEnabled(True)
+        self.actionMode_Dys.setObjectName("actionMode_Dys")
+        self.actionMode_Dys.toggled.connect(self.ChangeFont)
+        self.action32 = QtGui.QAction()
+        self.action32.setCheckable(True)
+        self.action32.setEnabled(True)
+        self.action32.setObjectName("action32")
+        self.action32.toggled.connect(lambda _: self.ChangeFontSize(changedValue=32))
+        self.action16 = QtGui.QAction()
+        self.action16.setCheckable(True)
+        self.action16.setChecked(True)
+        self.action16.toggled.connect(lambda _: self.ChangeFontSize(changedValue=16))
+        self.action16.setObjectName("action16")
+        self.action8 = QtGui.QAction()
+        self.action8.setCheckable(True)
+        self.action8.setEnabled(True)
+        self.action8.setObjectName("action8")
+        self.action8.toggled.connect(lambda _: self.ChangeFontSize(changedValue=8))
+        self.menuFile.addAction(self.actionOuvrir)
+        self.menuFile.addAction(self.actionNouveau)
+        self.menuFile.addAction(self.actionSauvegarder)
+        self.menuPolice.addAction(self.action32)
+        self.menuPolice.addAction(self.action16)
+        self.menuPolice.addAction(self.action8)
+        self.menuFen_tre.addAction(self.menuPolice.menuAction())
+        self.menuFen_tre.addAction(self.actionMode_Dys)
+        self.menubar.addAction(self.menuFile.menuAction())
+        self.menubar.addAction(self.menuFen_tre.menuAction())
+
+        _translate = QtCore.QCoreApplication.translate
+        self.menuFile.setTitle(_translate("MainWindow", "Fichier"))
+        self.menuFen_tre.setTitle(_translate("MainWindow", "Fenêtre"))
+        self.menuPolice.setTitle(_translate("MainWindow", "Police"))
+        self.actionOuvrir.setText(_translate("MainWindow", "Ouvrir ..."))
+        self.actionNouveau.setText(_translate("MainWindow", "Nouveau"))
+        self.actionSauvegarder.setText(_translate("MainWindow", "Enregistrer sous ..."))
+        self.actionMode_Dys.setText(_translate("MainWindow", "Mode dyslexique"))
+        self.action32.setText(_translate("MainWindow", "32"))
+        self.action16.setText(_translate("MainWindow", "16"))
+        self.action8.setText(_translate("MainWindow", "8"))
 
         # Initialize base values
-        self.DLC = 30                         # Days of lead time (DLC)
+        self.DLC = 30                         # Shelf life
         self.DelaiLivraison = 1               # Delay in delivery
         self.Suremballage = 1                 # Overpackaging
         self.Quarantaine = 1                  # Quarantine
@@ -151,6 +219,12 @@ class MyApp(QMainWindow):                   # Define a new class named MyApp tha
         self.spinBoxSuremballage.setValue(self.Suremballage)
         self.spinBoxDLC.setValue(self.DLC)
 
+        self.ChangeFontSize(changedValue=16)
+        width = 925
+        height = 420
+        # setting the width and height of window
+        self.resize(width, height)
+
     def CreateGraphWindow(self):
         """Function responsible for creating a graph in the canvas"""
         self.ui = UiGraphWindow()
@@ -159,11 +233,10 @@ class MyApp(QMainWindow):                   # Define a new class named MyApp tha
         self.Canvas = ic(self.findChild(FigureCanvas, "GraphCanvas"))
         self.ax = self.Canvas.figure.add_subplot(111)
 
-        # spinBox Delai
-        self.spinBoxDelai = ic(self.findChild(QSpinBox, "GraphSpinBoxDelai"))
-        self.spinBoxDelai.valueChanged.connect(lambda _: self.SpinBoxIsChanged(changedValue="Livr"))
         self.AssignGraphWindowWidgets()
         self.CreateGraph()
+        # Set the window to full screen
+        self.showMaximized()
 
     def SpinBoxIsChanged(self,  changedValue):
         """Function responsible for changing the parameter according to the spinBoxes in the main page"""
@@ -178,6 +251,16 @@ class MyApp(QMainWindow):                   # Define a new class named MyApp tha
                 self.Quarantaine = ic(self.spinBoxQuarantaine.value())
             case "CD":
                 self.ContratDate = ic(self.spinBoxContractDate.value())
+
+    def resource_path(self, relative_path):
+        """ Get absolute path to resource, works for dev and for PyInstaller """
+        try:
+            # PyInstaller creates a temp folder and stores path in _MEIPASS
+            base_path = sys._MEIPASS
+        except Exception:
+            base_path = os.path.abspath(".")
+
+        return os.path.join(base_path, relative_path)
 
     def GraphSliderIsChanged(self, changedValue):
         """Function responsible for changing the parameter according to the sliders in the graph page"""
@@ -460,6 +543,48 @@ class MyApp(QMainWindow):                   # Define a new class named MyApp tha
                                                  "le taux d'écart causant une rupture ou un dépassement")
 
         self.Canvas.draw()
+
+    def ChangeFont(self):
+        if self.action32:
+            self.ChangeFontSize(changedValue=32)
+        elif self.action16:
+            self.ChangeFontSize(changedValue=16)
+        else:
+            self.ChangeFontSize(changedValue=8)
+
+    def ChangeFontSize(self, changedValue):
+        if changedValue == 32:
+            self.action16.setChecked(False)
+            self.action8.setChecked(False)
+            if self.actionMode_Dys.isChecked():
+                self.setFont(QFont(self.OpenDyslexic, 32))
+            else:
+                self.setFont(QFont(self.PrimaryFont, 32))
+        elif changedValue == 16:
+            self.action32.setChecked(False)
+            self.action16.setChecked(True)
+            self.action8.setChecked(False)
+            if self.actionMode_Dys.isChecked():
+                self.setFont(QFont(self.OpenDyslexic, 16))
+            else:
+                self.setFont(QFont(self.PrimaryFont, 16))
+        elif changedValue == 8:
+            self.action32.setChecked(False)
+            self.action16.setChecked(False)
+            if self.actionMode_Dys.isChecked():
+                self.setFont(QFont(self.OpenDyslexic, 8))
+            else:
+                self.setFont(QFont(self.PrimaryFont, 8))
+        else:
+            self.action32.setChecked(False)
+            self.action16.setChecked(False)
+            self.action8.setChecked(False)
+            if self.actionMode_Dys.isChecked():
+                self.setFont(QFont(self.OpenDyslexic, changedValue))
+            else:
+                self.setFont(QFont(self.PrimaryFont, changedValue))
+
+
 
 
 if __name__ == '__main__':

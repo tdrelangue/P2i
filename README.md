@@ -88,24 +88,25 @@ The software, divided into two main objectives (Objective A and Objective B), in
 
 #### **Creation of Sliders for Parameter Impact Visualization**
 
-| Task                                   | Status    | Timestamp            |
+| Task                                       | Status    | Timestamp            |
 |--------------------------------------------|-----------|----------------------|
 | Create a graphical page                    | Completed | 18/01/2024 19:09     |
 | Display a graph                            | Completed | 06/02/2024 14:41     |
 | Create a sidebar for options               | Completed | 30/01/2024 23:16     |
 | Add option buttons                         | Completed | 30/01/2024 23:16     |
 | Sliders for the numboxes                   | Completed | 17/02/2024 18:53     |
-| Scroll mode                                |  Pending  | -                    |
+| Scroll mode                                |  Pending  |          -           |
 
 #### **Stock Management Functions**
 
-| Task                                | Status   | Timestamp            |
+| Task                                    | Status   | Timestamp            |
 |-----------------------------------------|----------|----------------------|
 | Delivery schedule in Python             | Completed| 06/02/2024 14:44     |
 | Calculate the worst week                | Completed| 08/02/2024 17:26     |
 | Calculate the clearance                 | Completed| 08/02/2024 17:26     |
 | Calculate the stockout                  | Completed| 08/02/2024 17:26     |
 | Linear regression                       | Completed| 08/02/2024 17:26     |
+| Linear regression on variable lengths   | Pending  |          -           |
 | Excluded cases alerts                   | Completed| 08/02/2024 17:26     |
 
 ### **Objectif B**

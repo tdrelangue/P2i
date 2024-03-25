@@ -44,7 +44,7 @@ def create_delivery_planning(
                 else:
                     if i < quarantaine + suremballage:
                         PlanningDuJour.append("0")
-                    elif DLC - i <= contractDate :
+                    elif DLC - i <= contractDate:
                         PlanningDuJour.append("C")
                     elif len(PlanningSemaine) > 0:
                         if quarantaine + suremballage + 2 >= i:
