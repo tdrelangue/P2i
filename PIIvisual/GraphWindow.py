@@ -36,10 +36,6 @@ class UiGraphWindow(object):
         self.ParametersVerticalLayout = QtWidgets.QVBoxLayout()
         self.ParametersVerticalLayout.setObjectName("GraphParametersVerticalLayout")
 
-        # Then I create a horizontal layout to put label and spinbox next to one another
-        self.DelaiDateHorizontalLayout = QtWidgets.QHBoxLayout()
-        self.DelaiDateHorizontalLayout.setObjectName("GraphDelaiDateHorizontalLayout")
-
         # Let's create our items
         self.spinBoxDelai = QtWidgets.QSpinBox(self.horizontalLayoutWidget)
         self.spinBoxDelai.setObjectName("GraphSpinBoxDelai")
@@ -50,16 +46,7 @@ class UiGraphWindow(object):
         self.SliderDelai.setOrientation(QtCore.Qt.Orientation.Horizontal)
         self.SliderDelai.setObjectName("GraphSliderDelai")
 
-        # And now ASAP science presents adding widgets
-        self.DelaiDateHorizontalLayout.addWidget(self.labelDelai)
-        self.DelaiDateHorizontalLayout.addWidget(self.spinBoxDelai)
-        self.ParametersVerticalLayout.addLayout(self.DelaiDateHorizontalLayout)
-        self.ParametersVerticalLayout.addWidget(self.SliderDelai)
-
         # same for ContractDate
-        # Then I create a horizontal layout to put label and spinbox next to one another
-        self.ContractDateHorizontalLayout = QtWidgets.QHBoxLayout()
-        self.ContractDateHorizontalLayout.setObjectName("GraphContractDateHorizontalLayout")
 
         # Let's create our items
         self.spinBoxContractDate = QtWidgets.QSpinBox(self.horizontalLayoutWidget)
@@ -71,17 +58,7 @@ class UiGraphWindow(object):
         self.SliderContratDate.setOrientation(QtCore.Qt.Orientation.Horizontal)
         self.SliderContratDate.setObjectName("GraphSliderContratDate")
 
-        # And now ASAP science presents adding widgets
-        self.ContractDateHorizontalLayout.addWidget(self.labelContractDate)
-        self.ContractDateHorizontalLayout.addWidget(self.spinBoxContractDate)
-        self.ParametersVerticalLayout.addLayout(self.ContractDateHorizontalLayout)
-        self.ParametersVerticalLayout.addWidget(self.SliderContratDate)
-
         # same for Quarantaine
-        # Then I create a horizontal layout to put label and spinbox next to one another
-        self.QuarantaineHorizontalLayout = QtWidgets.QHBoxLayout()
-        self.QuarantaineHorizontalLayout.setObjectName("GraphQuarantaineHorizontalLayout")
-
         # Let's create our items
         self.spinBoxQuarantaine = QtWidgets.QSpinBox(self.horizontalLayoutWidget)
         self.spinBoxQuarantaine.setObjectName("GraphSpinBoxQuarantaine")
@@ -92,16 +69,7 @@ class UiGraphWindow(object):
         self.SliderQuarantaine.setOrientation(QtCore.Qt.Orientation.Horizontal)
         self.SliderQuarantaine.setObjectName("GraphSliderQuarantaine")
 
-        # And now ASAP science presents adding widgets
-        self.QuarantaineHorizontalLayout.addWidget(self.labelQuarantaine)
-        self.QuarantaineHorizontalLayout.addWidget(self.spinBoxQuarantaine)
-        self.ParametersVerticalLayout.addLayout(self.QuarantaineHorizontalLayout)
-        self.ParametersVerticalLayout.addWidget(self.SliderQuarantaine)
-
         # same for Suremballage
-        # Then I create a horizontal layout to put label and spinbox next to one another
-        self.SuremballageHorizontalLayout = QtWidgets.QHBoxLayout()
-        self.SuremballageHorizontalLayout.setObjectName("GraphSuremballageHorizontalLayout")
 
         # Let's create our items
         self.labelDelaiSurembalage = QtWidgets.QLabel(self.horizontalLayoutWidget)
@@ -113,16 +81,7 @@ class UiGraphWindow(object):
         self.SliderSuremballage.setOrientation(QtCore.Qt.Orientation.Horizontal)
         self.SliderSuremballage.setObjectName("GraphSliderSuremballage")
 
-        # And now ASAP science presents adding widgets
-        self.SuremballageHorizontalLayout.addWidget(self.labelDelaiSurembalage)
-        self.SuremballageHorizontalLayout.addWidget(self.spinBoxSuremballage)
-        self.ParametersVerticalLayout.addLayout(self.SuremballageHorizontalLayout)
-        self.ParametersVerticalLayout.addWidget(self.SliderSuremballage)
-
         # same for DLC
-        # Then I create a horizontal layout to put label and spinbox next to one another
-        self.DlcHorizontalLayout = QtWidgets.QHBoxLayout()
-        self.DlcHorizontalLayout.setObjectName("GraphDlcHorizontalLayout")
 
         # Let's create our items
         self.labelDLC = QtWidgets.QLabel(self.horizontalLayoutWidget)
@@ -134,11 +93,33 @@ class UiGraphWindow(object):
         self.SliderDLC.setOrientation(QtCore.Qt.Orientation.Horizontal)
         self.SliderDLC.setObjectName("GraphSliderDLC")
 
-        # And now ASAP science presents adding widgets
-        self.DlcHorizontalLayout.addWidget(self.labelDLC)
-        self.DlcHorizontalLayout.addWidget(self.spinBoxDLC)
-        self.ParametersVerticalLayout.addLayout(self.DlcHorizontalLayout)
-        self.ParametersVerticalLayout.addWidget(self.SliderDLC)
+        # Create a dictionary to store the widgets and their corresponding layouts
+        widgets_and_layouts = {
+            "Delai": (self.labelDelai, self.spinBoxDelai, self.SliderDelai),
+            "ContractDate": (self.labelContractDate, self.spinBoxContractDate, self.SliderContratDate),
+            "Quarantaine": (self.labelQuarantaine, self.spinBoxQuarantaine, self.SliderQuarantaine),
+            "Suremballage": (self.labelDelaiSurembalage, self.spinBoxSuremballage, self.SliderSuremballage),
+            "DLC": (self.labelDLC, self.spinBoxDLC, self.SliderDLC),
+        }
+
+        for widget_name, (label, spin_box, slider) in widgets_and_layouts.items():
+            # Horizontal layout for each set of widgets
+            horizontal_layout = QtWidgets.QHBoxLayout()
+            horizontal_layout.setObjectName(f"Graph{widget_name}HorizontalLayout")
+
+            # Align the label to the left
+            label.setAlignment(QtCore.Qt.AlignmentFlag.AlignLeft)
+            horizontal_layout.addWidget(label)
+
+            # Align the spin box to the right
+            spin_box.setAlignment(QtCore.Qt.AlignmentFlag.AlignRight)
+            horizontal_layout.addWidget(spin_box)
+
+            # Add the horizontal layout to the vertical layout
+            self.ParametersVerticalLayout.addLayout(horizontal_layout)
+
+            # Add the slider to the vertical layout
+            self.ParametersVerticalLayout.addWidget(slider)
 
         self.horizontalLayout.addLayout(self.ParametersVerticalLayout)
         self.verticalLayout.addLayout(self.horizontalLayout)
@@ -233,9 +214,14 @@ class UiGraphWindow(object):
         self.labelLivr = QtWidgets.QLabel(self.horizontalLayoutWidget)
         self.labelLivr.setObjectName("GraphLabelLivr")
         self.gridLayout.addWidget(self.labelLivr, 0, 2, 1, 1)
+        # had to tweek the size policy
+        self.labelLivr.setSizePolicy(QtWidgets.QSizePolicy.Policy.Fixed, QtWidgets.QSizePolicy.Policy.Fixed)
+
         self.labelProd = QtWidgets.QLabel(self.horizontalLayoutWidget)
         self.labelProd.setObjectName("GraphLabelProd")
+        self.labelProd.setSizePolicy(QtWidgets.QSizePolicy.Policy.Fixed, QtWidgets.QSizePolicy.Policy.Fixed)
         self.gridLayout.addWidget(self.labelProd, 0, 1, 1, 1)
+
         self.horizontalLayout_2.addLayout(self.gridLayout)
         self.verticalLayout.addLayout(self.horizontalLayout_2)
         self.horizontalLayout_4 = QtWidgets.QHBoxLayout()
@@ -257,53 +243,6 @@ class UiGraphWindow(object):
         self.horizontalLayout_3.addWidget(self.GraphCanvas)
 
         MainWindow.setCentralWidget(self.centralwidget)
-
-
-        self.menubar = QtWidgets.QMenuBar(parent=MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 783, 22))
-        self.menubar.setObjectName("menubar")
-        self.menuFile = QtWidgets.QMenu(parent=self.menubar)
-        self.menuFile.setObjectName("menuFile")
-        self.menuFen_tre = QtWidgets.QMenu(parent=self.menubar)
-        self.menuFen_tre.setObjectName("menuFen_tre")
-        self.menuPolice = QtWidgets.QMenu(parent=self.menuFen_tre)
-        self.menuPolice.setObjectName("menuPolice")
-        MainWindow.setMenuBar(self.menubar)
-        self.statusbar = QtWidgets.QStatusBar(parent=MainWindow)
-        self.statusbar.setObjectName("statusbar")
-        MainWindow.setStatusBar(self.statusbar)
-        self.actionOuvrir = QtGui.QAction(parent=MainWindow)
-        self.actionOuvrir.setObjectName("actionOuvrir")
-        self.actionNouveau = QtGui.QAction(parent=MainWindow)
-        self.actionNouveau.setObjectName("actionNouveau")
-        self.actionSauvegarder = QtGui.QAction(parent=MainWindow)
-        self.actionSauvegarder.setObjectName("actionSauvegarder")
-        self.actionMode_Sans_Serif = QtGui.QAction(parent=MainWindow)
-        self.actionMode_Sans_Serif.setCheckable(True)
-        self.actionMode_Sans_Serif.setEnabled(True)
-        self.actionMode_Sans_Serif.setObjectName("actionMode_Sans_Serif")
-        self.action32 = QtGui.QAction(parent=MainWindow)
-        self.action32.setCheckable(True)
-        self.action32.setEnabled(True)
-        self.action32.setObjectName("action32")
-        self.action16 = QtGui.QAction(parent=MainWindow)
-        self.action16.setCheckable(True)
-        self.action16.setChecked(True)
-        self.action16.setObjectName("action16")
-        self.action8 = QtGui.QAction(parent=MainWindow)
-        self.action8.setCheckable(True)
-        self.action8.setEnabled(True)
-        self.action8.setObjectName("action8")
-        self.menuFile.addAction(self.actionOuvrir)
-        self.menuFile.addAction(self.actionNouveau)
-        self.menuFile.addAction(self.actionSauvegarder)
-        self.menuPolice.addAction(self.action32)
-        self.menuPolice.addAction(self.action16)
-        self.menuPolice.addAction(self.action8)
-        self.menuFen_tre.addAction(self.menuPolice.menuAction())
-        self.menuFen_tre.addAction(self.actionMode_Sans_Serif)
-        self.menubar.addAction(self.menuFile.menuAction())
-        self.menubar.addAction(self.menuFen_tre.menuAction())
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
@@ -327,13 +266,4 @@ class UiGraphWindow(object):
         self.labelProd.setText(_translate("SecuStock", "Production"))
         self.pushButtonClear.setText(_translate("SecuStock", "&Clear"))
         self.pushButtonEnter.setText(_translate("SecuStock", "&Enter"))
-        self.menuFile.setTitle(_translate("MainWindow", "Fichier"))
-        self.menuFen_tre.setTitle(_translate("MainWindow", "Fenêtre"))
-        self.menuPolice.setTitle(_translate("MainWindow", "Police"))
-        self.actionOuvrir.setText(_translate("MainWindow", "Ouvrir ..."))
-        self.actionNouveau.setText(_translate("MainWindow", "Nouveau"))
-        self.actionSauvegarder.setText(_translate("MainWindow", "Enregistrer sous ..."))
-        self.actionMode_Sans_Serif.setText(_translate("MainWindow", "Mode Sans Serif"))
-        self.action32.setText(_translate("MainWindow", "32"))
-        self.action16.setText(_translate("MainWindow", "16"))
-        self.action8.setText(_translate("MainWindow", "8"))
+
