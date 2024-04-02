@@ -124,62 +124,62 @@ class MyApp(QMainWindow):                   # Define a new class named MyApp tha
         self.pushButtonEnter.clicked.connect(self.CreateGraphWindow)
 
         # checkbox Lundi Prod
-        self.checkBoxLuP = ic(self.findChild(QCheckBox, "checkBoxLuP"))
+        self.checkBoxLuP = self.findChild(QCheckBox, "checkBoxLuP")
         self.checkBoxLuP.toggled.connect(lambda _: self.CheckBoxIsChecked(changedValue="LuProd"))
         # checkbox Mardi Prod
-        self.checkBoxMaP = ic(self.findChild(QCheckBox, "checkBoxMaP"))
+        self.checkBoxMaP = self.findChild(QCheckBox, "checkBoxMaP")
         self.checkBoxMaP.toggled.connect(lambda _: self.CheckBoxIsChecked(changedValue="MaProd"))
         # checkbox Mercredi Prod
-        self.checkBoxMeP = ic(self.findChild(QCheckBox, "checkBoxMeP"))
+        self.checkBoxMeP = self.findChild(QCheckBox, "checkBoxMeP")
         self.checkBoxMeP.toggled.connect(lambda _: self.CheckBoxIsChecked(changedValue="MeProd"))
         # checkbox Jeudi Prod
-        self.checkBoxJeP = ic(self.findChild(QCheckBox, "checkBoxJeP"))
+        self.checkBoxJeP = self.findChild(QCheckBox, "checkBoxJeP")
         self.checkBoxJeP.toggled.connect(lambda _: self.CheckBoxIsChecked(changedValue="JeProd"))
         # checkbox Vendredi Prod
-        self.checkBoxVeP = ic(self.findChild(QCheckBox, "checkBoxVeP"))
+        self.checkBoxVeP = self.findChild(QCheckBox, "checkBoxVeP")
         self.checkBoxVeP.toggled.connect(lambda _: self.CheckBoxIsChecked(changedValue="VeProd"))
         # checkbox Samedi Prod
-        self.checkBoxSaP = ic(self.findChild(QCheckBox, "checkBoxSaP"))
+        self.checkBoxSaP = self.findChild(QCheckBox, "checkBoxSaP")
         self.checkBoxSaP.toggled.connect(lambda _: self.CheckBoxIsChecked(changedValue="SaProd"))
         # checkbox Dimanche Prod
-        self.checkBoxDiP = ic(self.findChild(QCheckBox, "checkBoxDiP"))
+        self.checkBoxDiP = self.findChild(QCheckBox, "checkBoxDiP")
         self.checkBoxDiP.toggled.connect(lambda _: self.CheckBoxIsChecked(changedValue="DiProd"))
         # checkbox Lundi Livr
-        self.checkBoxLuL = ic(self.findChild(QCheckBox, "checkBoxLuL"))
+        self.checkBoxLuL = self.findChild(QCheckBox, "checkBoxLuL")
         self.checkBoxLuL.toggled.connect(lambda _: self.CheckBoxIsChecked(changedValue="LuLivr"))
         # checkbox Mardi Livr
-        self.checkBoxMaL = ic(self.findChild(QCheckBox, "checkBoxMaL"))
+        self.checkBoxMaL = self.findChild(QCheckBox, "checkBoxMaL")
         self.checkBoxMaL.toggled.connect(lambda _: self.CheckBoxIsChecked(changedValue="MaLivr"))
         # checkbox Mercredi Livr
-        self.checkBoxMeL = ic(self.findChild(QCheckBox, "checkBoxMeL"))
+        self.checkBoxMeL = self.findChild(QCheckBox, "checkBoxMeL")
         self.checkBoxMeL.toggled.connect(lambda _: self.CheckBoxIsChecked(changedValue="MeLivr"))
         # checkbox Jeudi Livr
-        self.checkBoxJeL = ic(self.findChild(QCheckBox, "checkBoxJeL"))
+        self.checkBoxJeL = self.findChild(QCheckBox, "checkBoxJeL")
         self.checkBoxJeL.toggled.connect(lambda _: self.CheckBoxIsChecked(changedValue="JeLivr"))
         # checkbox Vendredi Livr
-        self.checkBoxVeL = ic(self.findChild(QCheckBox, "checkBoxVeL"))
+        self.checkBoxVeL = self.findChild(QCheckBox, "checkBoxVeL")
         self.checkBoxVeL.toggled.connect(lambda _: self.CheckBoxIsChecked(changedValue="VeLivr"))
         # checkbox Samedi Livr
-        self.checkBoxSaL = ic(self.findChild(QCheckBox, "checkBoxSaL"))
+        self.checkBoxSaL = self.findChild(QCheckBox, "checkBoxSaL")
         self.checkBoxSaL.toggled.connect(lambda _: self.CheckBoxIsChecked(changedValue="SaLivr"))
         # checkbox Dimanche Livr
-        self.checkBoxDiL = ic(self.findChild(QCheckBox, "checkBoxDiL"))
+        self.checkBoxDiL = self.findChild(QCheckBox, "checkBoxDiL")
         self.checkBoxDiL.toggled.connect(lambda _: self.CheckBoxIsChecked(changedValue="DiLivr"))
 
         # spinBox DLC
-        self.spinBoxDLC = ic(self.findChild(QSpinBox, "spinBoxDLC"))
+        self.spinBoxDLC = self.findChild(QSpinBox, "spinBoxDLC")
         self.spinBoxDLC.valueChanged.connect(lambda _: self.SpinBoxIsChanged(changedValue="DLC"))
         # spinBox Delai
-        self.spinBoxDelai = ic(self.findChild(QSpinBox, "spinBoxDelai"))
+        self.spinBoxDelai = self.findChild(QSpinBox, "spinBoxDelai")
         self.spinBoxDelai.valueChanged.connect(lambda _: self.SpinBoxIsChanged(changedValue="Livr"))
         # spinBox Freq Prod
-        self.spinBoxSuremballage = ic(self.findChild(QSpinBox, "spinBoxSuremballage"))
+        self.spinBoxSuremballage = self.findChild(QSpinBox, "spinBoxSuremballage")
         self.spinBoxSuremballage.valueChanged.connect(lambda _: self.SpinBoxIsChanged(changedValue="Surr"))
         # spinBox Quarantaine
-        self.spinBoxQuarantaine = ic(self.findChild(QSpinBox, "spinBoxQuarantaine"))
+        self.spinBoxQuarantaine = self.findChild(QSpinBox, "spinBoxQuarantaine")
         self.spinBoxQuarantaine.valueChanged.connect(lambda _: self.SpinBoxIsChanged(changedValue="Quar"))
         # spinBox Contract Date
-        self.spinBoxContractDate = ic(self.findChild(QSpinBox, "spinBoxContratDate"))
+        self.spinBoxContractDate = self.findChild(QSpinBox, "spinBoxContratDate")
         self.spinBoxContractDate.valueChanged.connect(lambda _: self.SpinBoxIsChanged(changedValue="CD"))
 
         # Let's assign some base values so that people don't have to click 1000 times per use
@@ -230,7 +230,7 @@ class MyApp(QMainWindow):                   # Define a new class named MyApp tha
         self.ui = UiGraphWindow()
         self.ui.setupUi(self)
 
-        self.Canvas = ic(self.findChild(FigureCanvas, "GraphCanvas"))
+        self.Canvas = self.findChild(FigureCanvas, "GraphCanvas")
         self.ax = self.Canvas.figure.add_subplot(111)
 
         self.AssignGraphWindowWidgets()
@@ -242,15 +242,15 @@ class MyApp(QMainWindow):                   # Define a new class named MyApp tha
         """Function responsible for changing the parameter according to the spinBoxes in the main page"""
         match changedValue:
             case "DLC":
-                self.DLC = ic(self.spinBoxDLC.value())
+                self.DLC = self.spinBoxDLC.value()
             case "Livr":
-                self.DelaiLivraison = ic(self.spinBoxDelai.value())
+                self.DelaiLivraison = self.spinBoxDelai.value()
             case "Surr":
-                self.Suremballage = ic(self.spinBoxSuremballage.value())
+                self.Suremballage = self.spinBoxSuremballage.value()
             case "Quar":
-                self.Quarantaine = ic(self.spinBoxQuarantaine.value())
+                self.Quarantaine = self.spinBoxQuarantaine.value()
             case "CD":
-                self.ContratDate = ic(self.spinBoxContractDate.value())
+                self.ContratDate = self.spinBoxContractDate.value()
 
     def resource_path(self, relative_path):
         """ Get absolute path to resource, works for dev and for PyInstaller """
@@ -267,19 +267,19 @@ class MyApp(QMainWindow):                   # Define a new class named MyApp tha
 
         match changedValue:
             case "DLC":
-                self.DLC = ic(self.sliderDLC.value())
+                self.DLC = self.sliderDLC.value()
                 self.spinBoxDLC.setValue(self.DLC)
             case "Livr":
-                self.DelaiLivraison = ic(self.sliderDelai.value())
+                self.DelaiLivraison = self.sliderDelai.value()
                 self.spinBoxDelai.setValue(self.DelaiLivraison)
             case "Surr":
-                self.Suremballage = ic(self.sliderSuremballage.value())
+                self.Suremballage = self.sliderSuremballage.value()
                 self.spinBoxSuremballage.setValue(self.Suremballage)
             case "Quar":
-                self.Quarantaine = ic(self.sliderQuarantaine.value())
+                self.Quarantaine = self.sliderQuarantaine.value()
                 self.spinBoxQuarantaine.setValue(self.Quarantaine)
             case "CD":
-                self.ContratDate = ic(self.sliderContractDate.value())
+                self.ContratDate = self.sliderContractDate.value()
                 self.spinBoxContractDate.setValue(self.ContratDate)
         self.CreateGraph()
 
@@ -287,80 +287,80 @@ class MyApp(QMainWindow):                   # Define a new class named MyApp tha
         """Function responsible for changing the parameter according to the spinBoxes in the graph page"""
         match changedValue:
             case "DLC":
-                self.DLC = ic(self.spinBoxDLC.value())
+                self.DLC = self.spinBoxDLC.value()
             case "Livr":
-                self.DelaiLivraison = ic(self.spinBoxDelai.value())
+                self.DelaiLivraison = self.spinBoxDelai.value()
             case "Surr":
-                self.Suremballage = ic(self.spinBoxSuremballage.value())
+                self.Suremballage = self.spinBoxSuremballage.value()
             case "Quar":
-                self.Quarantaine = ic(self.spinBoxQuarantaine.value())
+                self.Quarantaine = self.spinBoxQuarantaine.value()
             case "CD":
-                self.ContratDate = ic(self.spinBoxContractDate.value())
+                self.ContratDate = self.spinBoxContractDate.value()
         self.CreateGraph()
 
     def CheckBoxIsChecked(self, changedValue):
         """Function responsible for changing the parameter according to the checkboxes in the main page"""
         match changedValue:
             case "LuProd":
-                self.LuProd = ic(self.checkBoxLuP.isChecked())
+                self.LuProd = self.checkBoxLuP.isChecked()
             case "MaProd":
-                self.MaProd = ic(self.checkBoxMaP.isChecked())
+                self.MaProd = self.checkBoxMaP.isChecked()
             case "MeProd":
-                self.MeProd = ic(self.checkBoxMeP.isChecked())
+                self.MeProd = self.checkBoxMeP.isChecked()
             case "JeProd":
-                self.JeProd = ic(self.checkBoxJeP.isChecked())
+                self.JeProd = self.checkBoxJeP.isChecked()
             case "VeProd":
-                self.VeProd = ic(self.checkBoxVeP.isChecked())
+                self.VeProd = self.checkBoxVeP.isChecked()
             case "SaProd":
-                self.SaProd = ic(self.checkBoxSaP.isChecked())
+                self.SaProd = self.checkBoxSaP.isChecked()
             case "DiProd":
-                self.DiProd = ic(self.checkBoxDiP.isChecked())
+                self.DiProd = self.checkBoxDiP.isChecked()
             case "LuLivr":
-                self.LuLivr = ic(self.checkBoxLuL.isChecked())
+                self.LuLivr = self.checkBoxLuL.isChecked()
             case "MaLivr":
-                self.MaLivr = ic(self.checkBoxMaL.isChecked())
+                self.MaLivr = self.checkBoxMaL.isChecked()
             case "MeLivr":
-                self.MeLivr = ic(self.checkBoxMeL.isChecked())
+                self.MeLivr = self.checkBoxMeL.isChecked()
             case "JeLivr":
-                self.JeLivr = ic(self.checkBoxJeL.isChecked())
+                self.JeLivr = self.checkBoxJeL.isChecked()
             case "VeLivr":
-                self.VeLivr = ic(self.checkBoxVeL.isChecked())
+                self.VeLivr = self.checkBoxVeL.isChecked()
             case "SaLivr":
-                self.SaLivr = ic(self.checkBoxSaL.isChecked())
+                self.SaLivr = self.checkBoxSaL.isChecked()
             case "DiLivr":
-                self.DiLivr = ic(self.checkBoxDiL.isChecked())
+                self.DiLivr = self.checkBoxDiL.isChecked()
 
     def GraphCheckBoxIsChecked(self, changedValue):
         """Function responsible for changing the parameter according to the checkboxes in the graph page"""
         match changedValue:
             case "LuProd":
-                self.LuProd = ic(self.checkBoxLuP.isChecked())
+                self.LuProd = self.checkBoxLuP.isChecked()
             case "MaProd":
-                self.MaProd = ic(self.checkBoxMaP.isChecked())
+                self.MaProd = self.checkBoxMaP.isChecked()
             case "MeProd":
-                self.MeProd = ic(self.checkBoxMeP.isChecked())
+                self.MeProd = self.checkBoxMeP.isChecked()
             case "JeProd":
-                self.JeProd = ic(self.checkBoxJeP.isChecked())
+                self.JeProd = self.checkBoxJeP.isChecked()
             case "VeProd":
-                self.VeProd = ic(self.checkBoxVeP.isChecked())
+                self.VeProd = self.checkBoxVeP.isChecked()
             case "SaProd":
-                self.SaProd = ic(self.checkBoxSaP.isChecked())
+                self.SaProd = self.checkBoxSaP.isChecked()
             case "DiProd":
-                self.DiProd = ic(self.checkBoxDiP.isChecked())
+                self.DiProd = self.checkBoxDiP.isChecked()
             case "LuLivr":
-                self.LuLivr = ic(self.checkBoxLuL.isChecked())
+                self.LuLivr = self.checkBoxLuL.isChecked()
             case "MaLivr":
-                self.MaLivr = ic(self.checkBoxMaL.isChecked())
+                self.MaLivr = self.checkBoxMaL.isChecked()
             case "MeLivr":
-                self.MeLivr = ic(self.checkBoxMeL.isChecked())
+                self.MeLivr = self.checkBoxMeL.isChecked()
             case "JeLivr":
-                self.JeLivr = ic(self.checkBoxJeL.isChecked())
+                self.JeLivr = self.checkBoxJeL.isChecked()
             case "VeLivr":
-                self.VeLivr = ic(self.checkBoxVeL.isChecked())
+                self.VeLivr = self.checkBoxVeL.isChecked()
             case "SaLivr":
-                self.SaLivr = ic(self.checkBoxSaL.isChecked())
+                self.SaLivr = self.checkBoxSaL.isChecked()
             case "DiLivr":
-                self.DiLivr = ic(self.checkBoxDiL.isChecked())
+                self.DiLivr = self.checkBoxDiL.isChecked()
         self.CreateGraph()
 
     def AssignGraphWindowWidgets(self):
@@ -375,46 +375,46 @@ class MyApp(QMainWindow):                   # Define a new class named MyApp tha
             pass
 
         # checkbox Lundi Prod
-        self.checkBoxLuP = ic(self.findChild(QCheckBox, "GraphCheckBoxLuP"))
+        self.checkBoxLuP = self.findChild(QCheckBox, "GraphCheckBoxLuP")
         self.checkBoxLuP.toggled.connect(lambda _: self.GraphCheckBoxIsChecked(changedValue="LuProd"))
         # checkbox Mardi Prod
-        self.checkBoxMaP = ic(self.findChild(QCheckBox, "GraphCheckBoxMaP"))
+        self.checkBoxMaP = self.findChild(QCheckBox, "GraphCheckBoxMaP")
         self.checkBoxMaP.toggled.connect(lambda _: self.GraphCheckBoxIsChecked(changedValue="MaProd"))
         # checkbox Mercredi Prod
-        self.checkBoxMeP = ic(self.findChild(QCheckBox, "GraphCheckBoxMeP"))
+        self.checkBoxMeP = self.findChild(QCheckBox, "GraphCheckBoxMeP")
         self.checkBoxMeP.toggled.connect(lambda _: self.GraphCheckBoxIsChecked(changedValue="MeProd"))
         # checkbox Jeudi Prod
-        self.checkBoxJeP = ic(self.findChild(QCheckBox, "GraphCheckBoxJeP"))
+        self.checkBoxJeP = self.findChild(QCheckBox, "GraphCheckBoxJeP")
         self.checkBoxJeP.toggled.connect(lambda _: self.GraphCheckBoxIsChecked(changedValue="JeProd"))
         # checkbox Vendredi Prod
-        self.checkBoxVeP = ic(self.findChild(QCheckBox, "GraphCheckBoxVeP"))
+        self.checkBoxVeP = self.findChild(QCheckBox, "GraphCheckBoxVeP")
         self.checkBoxVeP.toggled.connect(lambda _: self.GraphCheckBoxIsChecked(changedValue="VeProd"))
         # checkbox Samedi Prod
-        self.checkBoxSaP = ic(self.findChild(QCheckBox, "GraphCheckBoxSaP"))
+        self.checkBoxSaP = self.findChild(QCheckBox, "GraphCheckBoxSaP")
         self.checkBoxSaP.toggled.connect(lambda _: self.GraphCheckBoxIsChecked(changedValue="SaProd"))
         # checkbox Dimanche Prod
-        self.checkBoxDiP = ic(self.findChild(QCheckBox, "GraphCheckBoxDiP"))
+        self.checkBoxDiP = self.findChild(QCheckBox, "GraphCheckBoxDiP")
         self.checkBoxDiP.toggled.connect(lambda _: self.GraphCheckBoxIsChecked(changedValue="DiProd"))
         # checkbox Lundi Livr
-        self.checkBoxLuL = ic(self.findChild(QCheckBox, "GraphCheckBoxLuL"))
+        self.checkBoxLuL = self.findChild(QCheckBox, "GraphCheckBoxLuL")
         self.checkBoxLuL.toggled.connect(lambda _: self.GraphCheckBoxIsChecked(changedValue="LuLivr"))
         # checkbox Mardi Livr
-        self.checkBoxMaL = ic(self.findChild(QCheckBox, "GraphCheckBoxMaL"))
+        self.checkBoxMaL = self.findChild(QCheckBox, "GraphCheckBoxMaL")
         self.checkBoxMaL.toggled.connect(lambda _: self.GraphCheckBoxIsChecked(changedValue="MaLivr"))
         # checkbox Mercredi Livr
-        self.checkBoxMeL = ic(self.findChild(QCheckBox, "GraphCheckBoxMeL"))
+        self.checkBoxMeL = self.findChild(QCheckBox, "GraphCheckBoxMeL")
         self.checkBoxMeL.toggled.connect(lambda _: self.GraphCheckBoxIsChecked(changedValue="MeLivr"))
         # checkbox Jeudi Livr
-        self.checkBoxJeL = ic(self.findChild(QCheckBox, "GraphCheckBoxJeL"))
+        self.checkBoxJeL = self.findChild(QCheckBox, "GraphCheckBoxJeL")
         self.checkBoxJeL.toggled.connect(lambda _: self.GraphCheckBoxIsChecked(changedValue="JeLivr"))
         # checkbox Vendredi Livr
-        self.checkBoxVeL = ic(self.findChild(QCheckBox, "GraphCheckBoxVeL"))
+        self.checkBoxVeL = self.findChild(QCheckBox, "GraphCheckBoxVeL")
         self.checkBoxVeL.toggled.connect(lambda _: self.GraphCheckBoxIsChecked(changedValue="VeLivr"))
         # checkbox Samedi Livr
-        self.checkBoxSaL = ic(self.findChild(QCheckBox, "GraphCheckBoxSaL"))
+        self.checkBoxSaL = self.findChild(QCheckBox, "GraphCheckBoxSaL")
         self.checkBoxSaL.toggled.connect(lambda _: self.GraphCheckBoxIsChecked(changedValue="SaLivr"))
         # checkbox Dimanche Livr
-        self.checkBoxDiL = ic(self.findChild(QCheckBox, "GraphCheckBoxDiL"))
+        self.checkBoxDiL = self.findChild(QCheckBox, "GraphCheckBoxDiL")
         self.checkBoxDiL.toggled.connect(lambda _: self.GraphCheckBoxIsChecked(changedValue="DiLivr"))
 
         # reassign old checkbox values to new checkboxes
@@ -448,19 +448,19 @@ class MyApp(QMainWindow):                   # Define a new class named MyApp tha
         self.checkBoxDiL.setChecked(self.DiLivr)
 
         # spinBox DLC
-        self.spinBoxDLC = ic(self.findChild(QSpinBox, "GraphSpinBoxDLC"))
+        self.spinBoxDLC = self.findChild(QSpinBox, "GraphSpinBoxDLC")
         self.spinBoxDLC.valueChanged.connect(lambda _: self.GraphSpinBoxIsChanged(changedValue="DLC"))
         # spinBox Delai
-        self.spinBoxDelai = ic(self.findChild(QSpinBox, "GraphSpinBoxDelai"))
+        self.spinBoxDelai = self.findChild(QSpinBox, "GraphSpinBoxDelai")
         self.spinBoxDelai.valueChanged.connect(lambda _: self.GraphSpinBoxIsChanged(changedValue="Livr"))
         # spinBox Freq Prod
-        self.spinBoxSuremballage = ic(self.findChild(QSpinBox, "GraphSpinBoxSuremballage"))
+        self.spinBoxSuremballage = self.findChild(QSpinBox, "GraphSpinBoxSuremballage")
         self.spinBoxSuremballage.valueChanged.connect(lambda _: self.GraphSpinBoxIsChanged(changedValue="Surr"))
         # spinBox Quarantaine
-        self.spinBoxQuarantaine = ic(self.findChild(QSpinBox, "GraphSpinBoxQuarantaine"))
+        self.spinBoxQuarantaine = self.findChild(QSpinBox, "GraphSpinBoxQuarantaine")
         self.spinBoxQuarantaine.valueChanged.connect(lambda _: self.GraphSpinBoxIsChanged(changedValue="Quar"))
         # spinBox Contract Date
-        self.spinBoxContractDate = ic(self.findChild(QSpinBox, "GraphSpinBoxContratDate"))
+        self.spinBoxContractDate = self.findChild(QSpinBox, "GraphSpinBoxContratDate")
         self.spinBoxContractDate.valueChanged.connect(lambda _: self.GraphSpinBoxIsChanged(changedValue="CD"))
 
         self.spinBoxContractDate.setValue(self.ContratDate)
@@ -470,19 +470,19 @@ class MyApp(QMainWindow):                   # Define a new class named MyApp tha
         self.spinBoxDLC.setValue(self.DLC)
 
         # slider DLC
-        self.sliderDLC = ic(self.findChild(QSlider, "GraphSliderDLC"))
+        self.sliderDLC = self.findChild(QSlider, "GraphSliderDLC")
         self.sliderDLC.valueChanged.connect(lambda _: self.GraphSliderIsChanged(changedValue="DLC"))
         # slider Delai
-        self.sliderDelai = ic(self.findChild(QSlider, "GraphSliderDelai"))
+        self.sliderDelai = self.findChild(QSlider, "GraphSliderDelai")
         self.sliderDelai.valueChanged.connect(lambda _: self.GraphSliderIsChanged(changedValue="Livr"))
         # slider Freq Prod
-        self.sliderSuremballage = ic(self.findChild(QSlider, "GraphSliderSuremballage"))
+        self.sliderSuremballage = self.findChild(QSlider, "GraphSliderSuremballage")
         self.sliderSuremballage.valueChanged.connect(lambda _: self.GraphSliderIsChanged(changedValue="Surr"))
         # slider Quarantaine
-        self.sliderQuarantaine = ic(self.findChild(QSlider, "GraphSliderQuarantaine"))
+        self.sliderQuarantaine = self.findChild(QSlider, "GraphSliderQuarantaine")
         self.sliderQuarantaine.valueChanged.connect(lambda _: self.GraphSliderIsChanged(changedValue="Quar"))
         # slider Contract Date
-        self.sliderContractDate = ic(self.findChild(QSlider, "GraphSliderContratDate"))
+        self.sliderContractDate = self.findChild(QSlider, "GraphSliderContratDate")
         self.sliderContractDate.valueChanged.connect(lambda _: self.GraphSliderIsChanged(changedValue="CD"))
 
         self.sliderContractDate.setValue(self.ContratDate)
