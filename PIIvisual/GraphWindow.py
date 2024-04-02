@@ -229,9 +229,9 @@ class UiGraphWindow(object):
         self.pushButtonClear = QtWidgets.QPushButton(self.horizontalLayoutWidget)
         self.pushButtonClear.setObjectName("GraphPushButtonClear")
         self.horizontalLayout_4.addWidget(self.pushButtonClear)
-        self.pushButtonEnter = QtWidgets.QPushButton(self.horizontalLayoutWidget)
-        self.pushButtonEnter.setObjectName("GraphPushButtonEnter")
-        self.horizontalLayout_4.addWidget(self.pushButtonEnter)
+        self.pushButtonIA = QtWidgets.QPushButton(self.horizontalLayoutWidget)
+        self.pushButtonIA.setObjectName("GraphPushButtonIA")
+        self.horizontalLayout_4.addWidget(self.pushButtonIA)
         self.verticalLayout.addLayout(self.horizontalLayout_4)
         self.horizontalLayout_3.addLayout(self.verticalLayout)
 
@@ -265,5 +265,5 @@ class UiGraphWindow(object):
         self.labelLivr.setText(_translate("SecuStock", "Livraison"))
         self.labelProd.setText(_translate("SecuStock", "Production"))
         self.pushButtonClear.setText(_translate("SecuStock", "&Clear"))
-        self.pushButtonEnter.setText(_translate("SecuStock", "&Enter"))
+        self.pushButtonIA.setText(_translate("SecuStock", "&IA"))
 
