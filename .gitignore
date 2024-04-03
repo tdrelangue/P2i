@@ -1,2 +1,8 @@
 # excel spreadsheet
 timetable.xlsx
+
+PIIvisual/build
+PIIvisual/dist
+PIIvisual/secustock.spec
+
+.idea

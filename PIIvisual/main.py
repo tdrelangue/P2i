@@ -23,9 +23,9 @@ class MyApp(QMainWindow):                   # Define a new class named MyApp tha
     def __init__(self):                      # Define the constructor method for the MyApp class
         super().__init__()       # Call the constructor of the superclass (QMainWindow) to initialize the object
         self.setWindowTitle('SecuStock')      # Set the window title to 'SecuStock'
-        self.setWindowIcon(QIcon(self.resource_path('stock.ico')))      # Set the window icon to the 'stock.ico' file
+        self.setWindowIcon(QIcon(self.resource_path('assets\\stock.ico')))      # Set the window icon to the 'stock.ico' file
         # import open dyslexic font
-        id_open_dys = QtGui.QFontDatabase.addApplicationFont(self.resource_path("OpenDyslexic-Regular.otf"))
+        id_open_dys = QtGui.QFontDatabase.addApplicationFont(self.resource_path("assets\\OpenDyslexic-Regular.otf"))
         # get the exact system name to ensure no mistakes are made
         self.OpenDyslexic = QtGui.QFontDatabase.applicationFontFamilies(id_open_dys)[0]
         self.PrimaryFont = "calibri"
