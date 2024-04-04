@@ -27,7 +27,10 @@ class MyApp(QMainWindow):                   # Define a new class named MyApp tha
         # import open dyslexic font
         id_open_dys = QtGui.QFontDatabase.addApplicationFont(self.resource_path("assets\\OpenDyslexic-Regular.otf"))
         # get the exact system name to ensure no mistakes are made
-        self.OpenDyslexic = QtGui.QFontDatabase.applicationFontFamilies(id_open_dys)[0]
+        try :
+            self.OpenDyslexic = QtGui.QFontDatabase.applicationFontFamilies(id_open_dys)[0]
+        except :
+            self.OpenDyslexic = "calibri"
         self.PrimaryFont = "calibri"
 
         # Creation of the menu bar
@@ -556,33 +559,23 @@ class MyApp(QMainWindow):                   # Define a new class named MyApp tha
         if changedValue == 32:
             self.action16.setChecked(False)
             self.action8.setChecked(False)
-            if self.actionMode_Dys.isChecked():
-                self.setFont(QFont(self.OpenDyslexic, 32))
-            else:
-                self.setFont(QFont(self.PrimaryFont, 32))
         elif changedValue == 16:
             self.action32.setChecked(False)
-            self.action16.setChecked(True)
             self.action8.setChecked(False)
-            if self.actionMode_Dys.isChecked():
-                self.setFont(QFont(self.OpenDyslexic, 16))
-            else:
-                self.setFont(QFont(self.PrimaryFont, 16))
         elif changedValue == 8:
             self.action32.setChecked(False)
             self.action16.setChecked(False)
-            if self.actionMode_Dys.isChecked():
-                self.setFont(QFont(self.OpenDyslexic, 8))
-            else:
-                self.setFont(QFont(self.PrimaryFont, 8))
         else:
             self.action32.setChecked(False)
             self.action16.setChecked(False)
             self.action8.setChecked(False)
-            if self.actionMode_Dys.isChecked():
+        if self.actionMode_Dys.isChecked():
+            try :
                 self.setFont(QFont(self.OpenDyslexic, changedValue))
-            else:
+            except :
                 self.setFont(QFont(self.PrimaryFont, changedValue))
+        else:
+            self.setFont(QFont(self.PrimaryFont, changedValue))
 
 
 
