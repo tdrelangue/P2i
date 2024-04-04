@@ -578,8 +578,6 @@ class MyApp(QMainWindow):                   # Define a new class named MyApp tha
             self.setFont(QFont(self.PrimaryFont, changedValue))
 
 
-
-
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     window = MyApp()
